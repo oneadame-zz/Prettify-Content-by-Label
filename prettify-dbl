@@ -1,0 +1,18 @@
+$(function formatCBL() {
+
+    var contentBylabel = $(".content-by-label");
+    var anchors = contentBylabel.find("div>a");
+    anchors.unwrap();
+    anchors.wrap("<h2 class='wiki-content'></h2>");
+
+    contentBylabel.find("li").each(function format() {
+        var me = $(this);
+        me.find("div").first().remove();
+        var outerSpan = me.find("span:first")
+        text = outerSpan.html().split("—");
+        me.find("span").html(text[1]);
+    });
+
+    contentBylabel.find("p").unwrap();
+
+});
